@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit Publisher</h2>
+<form method="post" action="/Publisher/Edit/@ViewBag.pid">
+    <label>Name:</label>
+    <input type="text" name="pname" value="@ViewBag.pname" /><br /><br />
+    <label>City:</label>
+    <input type="text" name="city" value="@ViewBag.city" /><br /><br />
+    <input type="submit" value="Update" />
+</form>

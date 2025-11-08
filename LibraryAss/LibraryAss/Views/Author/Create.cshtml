@@ -1,0 +1,25 @@
+﻿@{
+    var publishers = ViewBag.Publishers as System.Data.DataTable;
+}
+<h2>Add Author</h2>
+
+<form method="post" action="/Author/Create">
+    <label>Author Name:</label><br />
+    <input type="text" name="aname" required /><br /><br />
+
+    <label>Publisher:</label><br />
+    <select name="pid" required>
+        <option value="">-- Select Publisher --</option>
+        @foreach (System.Data.DataRow row in publishers.Rows)
+        {
+            <option value="@row["pid"]">@row["pname"]</option>
+        }
+    </select><br /><br />
+
+    <label>Expertise:</label><br />
+    <input type="text" name="expertise" placeholder="Computer, Finance, etc." required /><br /><br />
+
+    <input type="submit" value="Save" />
+</form>
+
+<p style="color:red;">@ViewBag.Error</p>

@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+@{
+    var data = ViewBag.Data as System.Data.DataTable;
+}
+<h2>Publisher List</h2>
+<p><a href="/Publisher/Create">+ Add New Publisher</a></p>
+<table border="1">
+    <tr><th>ID</th><th>Name</th><th>City</th></tr>
+    @foreach (System.Data.DataRow row in data.Rows)
+    {
+        <tr>
+            <td>@row["pid"]</td>
+            <td>@row["pname"]</td>
+            <td>@row["city"]</td>
+            <td>
+                <a href="/Publisher/Edit/@row["pid"]">Edit</a> |
+                <a onclick="confirmDelete(@row["pid"])">Delete</a>
+            </td>
+        </tr>
+    }
+</table>
+
+<script>
+    function confirmDelete(id) {
+        if (confirm("Are you Sure to Delete ?")) {
+            window.location.href = `/Publisher/Delete/${id}`;
+        }
+    }
+</script>

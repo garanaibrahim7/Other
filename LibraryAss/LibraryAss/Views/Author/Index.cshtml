@@ -1,0 +1,21 @@
+﻿@model System.Data.DataTable
+<h2>Author List</h2>
+<p><a href="/Author/Create">+ Add New Author</a></p>
+
+<table border="1" cellpadding="6">
+    <tr><th>ID</th><th>Name</th><th>Publisher</th><th>Expertise</th><th>Actions</th></tr>
+    @foreach (System.Data.DataRow row in Model.Rows)
+    {
+        <tr>
+            <td>@row["aid"]</td>
+            <td>@row["aname"]</td>
+            <td>@row["pname"]</td>
+            <td>@row["expertise"]</td>
+            <td>
+                <a href="/Author/Edit/@row["aid"]">Edit</a> |
+                <a href="/Author/Delete/@row["aid"]">Delete</a> |
+                <a href="/Author/Details/@row["aid"]">Details</a>
+            </td>
+        </tr>
+    }
+</table>

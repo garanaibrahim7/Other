@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Add Publisher</h2>
+<form method="post" action="/Publisher/Create">
+    <label>Name:</label>
+    <input type="text" name="pname" required /><br /><br />
+    <label>City:</label>
+    <input type="text" name="city" required /><br /><br />
+    <input type="submit" value="Save" />
+</form>
+<p style="color:green;">@ViewBag.Message</p>
